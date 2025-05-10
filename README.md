@@ -21,15 +21,14 @@ How far can you go?
 for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
-        # 방향키로 블록 이동
-        elif event.type == pygame.KEYDOWN and not game_over: # 키가 눌리는 이벤트 발생
-            if event.key == pygame.K_LEFT and not check_collision(block, x - 1, y): # 눌린 키가 왼쪽 화살표키이면
-                x -= 1 # 왼쪽 이동
+        elif event.type == pygame.KEYDOWN and not game_over: 
+            if event.key == pygame.K_LEFT and not check_collision(block, x - 1, y): 
+                x -= 1 
             elif event.key == pygame.K_RIGHT and not check_collision(block, x + 1, y):
-                x += 1 # 오른쪽 이동
+                x += 1 
             elif event.key == pygame.K_DOWN and not check_collision(block, x, y + 1):
                 y += 1
-            elif event.key == pygame.K_UP: # 회전
+            elif event.key == pygame.K_UP: 
                 rotated = rotate(block)
                 if not check_collision(rotated, x, y):
                     block = rotated
